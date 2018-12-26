@@ -1,20 +1,28 @@
 PODS:
   - Alamofire (4.7.3)
+  - FontAwesome.swift (1.4.8)
   - PromiseKit/CorePromise (6.5.3)
+  - upnpx (1.4.0)
 
 DEPENDENCIES:
   - Alamofire (= 4.7.3)
+  - FontAwesome.swift (= 1.4.8)
   - PromiseKit/CorePromise (= 6.5.3)
+  - upnpx (= 1.4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - FontAwesome.swift
     - PromiseKit
+    - upnpx
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  FontAwesome.swift: fb8637bffb9a588c7e8c753c084565b27b20a39d
   PromiseKit: c609029bdd801f792551a504c695c7d3098b42cd
+  upnpx: c695b99229e08154d23abe5c252cb64f1600f35d
 
-PODFILE CHECKSUM: d105ebce0e3ea52894e82c9e5b71c54305ad547b
+PODFILE CHECKSUM: f36b537e479e728a18cc6ae74e413f60f06a7487
 
 COCOAPODS: 1.5.3

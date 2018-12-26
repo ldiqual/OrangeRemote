@@ -9,7 +9,9 @@ ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
 target 'OrangeRemote'
 pod 'Alamofire', '4.7.3'
+pod 'FontAwesome.swift', '1.4.8'
 pod 'PromiseKit/CorePromise', '6.5.3'
+pod 'upnpx', '1.4.0'
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
