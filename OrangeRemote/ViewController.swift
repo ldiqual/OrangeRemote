@@ -8,6 +8,7 @@
 
 import UIKit
 import FontAwesome_swift
+import upnpx
 
 class ViewController: UIViewController {
     
@@ -31,6 +32,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Settings
+        settingsButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .solid)
+        settingsButton.setTitle(String.fontAwesomeIcon(name: .cog), for: .normal)
+        settingsButton.setTitleColor(.black, for: .normal)
+        settingsButton.addTarget(self, action: #selector(onSettingsButtonPressed), for: .touchUpInside)
         
         let allButtons: [UIButton] = [
             keyLeftButton,
@@ -74,7 +81,9 @@ class ViewController: UIViewController {
         
     }
     
-    fileprivate func send(command: Command) {
+    fileprivate func onRemoteButtonPressed(command: Command) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
         RemoteClient.instance.send(command: command).done {
             print("Sent \(command)")
         }.catch { error in
@@ -85,26 +94,39 @@ class ViewController: UIViewController {
     @objc fileprivate func onButtonPressed(button: UIButton) {
         switch button {
             
-        case keyLeftButton: send(command: .buttonLeft)
-        case keyRightButton: send(command: .buttonRight)
-        case keyUpButton: send(command: .buttonUp)
-        case keyDownButton: send(command: .buttonDown)
-        case okButton: send(command: .ok)
+        case keyLeftButton: onRemoteButtonPressed(command: .buttonLeft)
+        case keyRightButton: onRemoteButtonPressed(command: .buttonRight)
+        case keyUpButton: onRemoteButtonPressed(command: .buttonUp)
+        case keyDownButton: onRemoteButtonPressed(command: .buttonDown)
+        case okButton: onRemoteButtonPressed(command: .ok)
     
-        case playPauseButton: send(command: .playPause)
-        case recordButton: send(command: .playPause) // TODO: fix
-        case volumeUpButton: send(command: .volumeUp)
-        case volumeDownButton: send(command: .volumeDown)
-        case muteButton: send(command: .mute)
-        case channelUpButton: send(command: .channelUp)
-        case channelDownButton: send(command: .channelDown)
-        case forwardButton: send(command: .forward)
-        case backwardButton: send(command: .backward)
+        case playPauseButton: onRemoteButtonPressed(command: .playPause)
+        case recordButton: onRemoteButtonPressed(command: .playPause) // TODO: fix
+        case volumeUpButton: onRemoteButtonPressed(command: .volumeUp)
+        case volumeDownButton: onRemoteButtonPressed(command: .volumeDown)
+        case muteButton: onRemoteButtonPressed(command: .mute)
+        case channelUpButton: onRemoteButtonPressed(command: .channelUp)
+        case channelDownButton: onRemoteButtonPressed(command: .channelDown)
+        case forwardButton: onRemoteButtonPressed(command: .forward)
+        case backwardButton: onRemoteButtonPressed(command: .backward)
             
         default:
             print("Unknown button \(button)")
             
         }
+    }
+    
+    @objc fileprivate func onSettingsButtonPressed(button: UIButton) {
+        let settingsVC = SettingsVC()
+        settingsVC.delegate = self
+        present(settingsVC, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: SettingsVCDelegate {
+    func settingsVC(_ settingsVC: SettingsVC, didDetectDevice device: BasicUPnPDevice) {
+        settingsVC.dismiss(animated: true, completion: nil)
+        RemoteClient.instance.setDevice(device)
     }
 }
 

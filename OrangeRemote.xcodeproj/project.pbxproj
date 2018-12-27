@@ -10,6 +10,7 @@
 		C01B1BF521D43C4500B11092 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B1BF421D43C4500B11092 /* SettingsVC.swift */; };
 		C01B1BF721D516EA00B11092 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C01B1BF621D516EA00B11092 /* Localizable.strings */; };
 		C01B1BFA21D5182900B11092 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B1BF921D5182900B11092 /* L10n.swift */; };
+		C01B1BFC21D5185800B11092 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C01B1BFB21D5185800B11092 /* SettingsVC.xib */; };
 		C04473AD21D4141400C7E598 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04473AC21D4141400C7E598 /* AppDelegate.swift */; };
 		C04473AF21D4141400C7E598 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04473AE21D4141400C7E598 /* ViewController.swift */; };
 		C04473B221D4141400C7E598 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04473B021D4141400C7E598 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		C01B1BF421D43C4500B11092 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C01B1BF621D516EA00B11092 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C01B1BF921D5182900B11092 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		C01B1BFB21D5185800B11092 /* SettingsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsVC.xib; sourceTree = "<group>"; };
 		C04473A921D4141400C7E598 /* OrangeRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangeRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04473AC21D4141400C7E598 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04473AE21D4141400C7E598 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C01B1BFD21D518F200B11092 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C01B1BF421D43C4500B11092 /* SettingsVC.swift */,
+				C01B1BFB21D5185800B11092 /* SettingsVC.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		C04473A021D4141400C7E598 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +99,7 @@
 		C04473AB21D4141400C7E598 /* OrangeRemote */ = {
 			isa = PBXGroup;
 			children = (
+				C01B1BFD21D518F200B11092 /* Settings */,
 				C01B1BF921D5182900B11092 /* L10n.swift */,
 				C04473AC21D4141400C7E598 /* AppDelegate.swift */,
 				C04473AE21D4141400C7E598 /* ViewController.swift */,
@@ -97,7 +109,6 @@
 				C04473B821D4141700C7E598 /* Info.plist */,
 				C04473BE21D415AF00C7E598 /* Command.swift */,
 				C04473C021D41AE000C7E598 /* RemoteClient.swift */,
-				C01B1BF421D43C4500B11092 /* SettingsVC.swift */,
 				C01B1BF621D516EA00B11092 /* Localizable.strings */,
 			);
 			path = OrangeRemote;
@@ -168,6 +179,7 @@
 				C01B1BF721D516EA00B11092 /* Localizable.strings in Resources */,
 				C04473B421D4141700C7E598 /* Assets.xcassets in Resources */,
 				C04473B221D4141400C7E598 /* Main.storyboard in Resources */,
+				C01B1BFC21D5185800B11092 /* SettingsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CYVM7UEHW;
 				INFOPLIST_FILE = OrangeRemote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -420,6 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CYVM7UEHW;
 				INFOPLIST_FILE = OrangeRemote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

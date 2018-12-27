@@ -142,41 +142,5 @@
             </objects>
             <point key="canvasLocation" x="-79.200000000000003" y="132.68365817091455"/>
         </scene>
-        <!--SettingsVC-->
-        <scene sceneID="Gug-in-O6r">
-            <objects>
-                <viewController id="ArA-1j-5om" customClass="SettingsVC" customModule="OrangeRemote" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hfC-1h-CwP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQc-Fd-4p1">
-                                <rect key="frame" x="40" y="70" width="295" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tZs-19-Vhn">
-                                <rect key="frame" x="177.5" y="141" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="tZs-19-Vhn" firstAttribute="top" secondItem="mQc-Fd-4p1" secondAttribute="bottom" constant="50" id="8jf-pG-rtQ"/>
-                            <constraint firstItem="mQc-Fd-4p1" firstAttribute="leading" secondItem="lJl-xA-iXH" secondAttribute="leading" constant="40" id="Z4Z-S9-6ED"/>
-                            <constraint firstItem="tZs-19-Vhn" firstAttribute="centerX" secondItem="hfC-1h-CwP" secondAttribute="centerX" id="dL0-Li-Qu5"/>
-                            <constraint firstItem="lJl-xA-iXH" firstAttribute="trailing" secondItem="mQc-Fd-4p1" secondAttribute="trailing" constant="40" id="fMR-pf-p61"/>
-                            <constraint firstItem="mQc-Fd-4p1" firstAttribute="top" secondItem="lJl-xA-iXH" secondAttribute="top" constant="50" id="uFB-9y-zie"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="lJl-xA-iXH"/>
-                    </view>
-                    <connections>
-                        <outlet property="titleLabel" destination="mQc-Fd-4p1" id="Veb-oW-6Yh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nSn-dc-DBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="654" y="133"/>
-        </scene>
     </scenes>
 </document>
