@@ -32,6 +32,9 @@ class RemoteVC: UIViewController {
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var backwardButton: UIButton!
     
+    @IBOutlet weak var returnButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
+    
     weak var delegate: RemoteVCDelegate?
     
     init() {
@@ -66,6 +69,9 @@ class RemoteVC: UIViewController {
             channelDownButton,
             forwardButton,
             backwardButton,
+            
+            returnButton,
+            menuButton,
         ]
             
         allButtons.forEach { button in
@@ -89,6 +95,9 @@ class RemoteVC: UIViewController {
         channelDownButton.setTitle(String.fontAwesomeIcon(name: .minusCircle), for: .normal)
         forwardButton.setTitle(String.fontAwesomeIcon(name: .forward), for: .normal)
         backwardButton.setTitle(String.fontAwesomeIcon(name: .backward), for: .normal)
+        
+        returnButton.setTitle(String.fontAwesomeIcon(name: .longArrowAltLeft), for: .normal)
+        menuButton.setTitle(String.fontAwesomeIcon(name: .alignJustify), for: .normal)
         
     }
     
@@ -117,7 +126,7 @@ class RemoteVC: UIViewController {
         case okButton: onRemoteButtonPressed(command: .ok)
     
         case playPauseButton: onRemoteButtonPressed(command: .playPause)
-        case recordButton: onRemoteButtonPressed(command: .playPause) // TODO: fix
+        case recordButton: onRemoteButtonPressed(command: .record)
         case volumeUpButton: onRemoteButtonPressed(command: .volumeUp)
         case volumeDownButton: onRemoteButtonPressed(command: .volumeDown)
         case muteButton: onRemoteButtonPressed(command: .mute)
@@ -125,6 +134,9 @@ class RemoteVC: UIViewController {
         case channelDownButton: onRemoteButtonPressed(command: .channelDown)
         case forwardButton: onRemoteButtonPressed(command: .forward)
         case backwardButton: onRemoteButtonPressed(command: .backward)
+            
+        case returnButton: onRemoteButtonPressed(command: .return)
+        case menuButton: onRemoteButtonPressed(command: .menu)
             
         default:
             print("Unknown button \(button)")

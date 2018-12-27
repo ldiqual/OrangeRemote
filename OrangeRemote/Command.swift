@@ -19,6 +19,7 @@ enum Command: Int {
     case `return` = 158
     case menu = 139
     case playPause = 164
+    case record = 167
     case mute = 113
     case channelUp = 402
     case channelDown = 403
