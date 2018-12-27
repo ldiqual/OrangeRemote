@@ -26,7 +26,6 @@ class SettingsVC: UIViewController {
     weak var delegate: SettingsVCDelegate?
     
     fileprivate let shouldShowBackButton: Bool
-    fileprivate var devices = [BasicUPnPDevice]()
     
     init(shouldShowBackButton: Bool) {
         self.shouldShowBackButton = shouldShowBackButton
@@ -58,7 +57,10 @@ class SettingsVC: UIViewController {
         powerIconLabel.font = UIFont.fontAwesome(ofSize: 30, style: .solid)
         powerIconLabel.text = String.fontAwesomeIcon(name: .powerOff)
         powerDetailsLabel.text = L10n.settingsPower
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         startScanning()
     }
     
@@ -68,7 +70,7 @@ class SettingsVC: UIViewController {
         }
         
         if let devices = manager.db.rootDevices as? [BasicUPnPDevice] {
-            self.devices = devices
+            onNewDevicesDetected(devices)
         }
         
         manager.db.add(self)
@@ -83,6 +85,25 @@ class SettingsVC: UIViewController {
         }
         
         _ = manager.ssdp.stopSSDP // this is a method call
+    }
+    
+    fileprivate func onNewDevicesDetected(_ devices: [BasicUPnPDevice]) {
+        
+        let wrappedDevice = devices.first { device in
+            guard let services = device.services as? [String: BasicUPnPService] else {
+                return false
+            }
+            return services.values.contains { service in
+                service.urn == "urn:schemas-orange-com:service:X_OrangeSTBRemoteControl:1"
+            }
+        }
+        
+        guard let device = wrappedDevice else {
+            return print("No matching device yet")
+        }
+        
+        stopScanning()
+        delegate?.settingsVC(self, didDetectDevice: device)
     }
 }
 
@@ -101,22 +122,8 @@ extension SettingsVC: UPnPDBObserver {
             return print("Can't get devices")
         }
         
-        let wrappedDevice = devices.first { device in
-            guard let services = device.services as? [String: BasicUPnPService] else {
-                return false
-            }
-            return services.values.contains { service in
-                service.urn == "urn:schemas-orange-com:service:X_OrangeSTBRemoteControl:1"
-            }
-        }
-        
-        guard let device = wrappedDevice else {
-            return print("No matching device yet")
-        }
-        
         DispatchQueue.main.async {
-            self.stopScanning()
-            self.delegate?.settingsVC(self, didDetectDevice: device)
+            self.onNewDevicesDetected(devices)
         }
     }
 }
