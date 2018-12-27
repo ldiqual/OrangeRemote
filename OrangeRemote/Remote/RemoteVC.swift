@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RemoteVC.swift
 //  OrangeRemote
 //
 //  Created by Lois Di Qual on 12/26/18.
@@ -10,9 +10,11 @@ import UIKit
 import FontAwesome_swift
 import upnpx
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var settingsButton: UIButton!
+protocol RemoteVCDelegate: class {
+    func remoteVCDidPressSettingsButton(_ remoteVC: RemoteVC)
+}
+
+class RemoteVC: UIViewController {
     
     @IBOutlet weak var keyLeftButton: UIButton!
     @IBOutlet weak var keyRightButton: UIButton!
@@ -30,14 +32,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var backwardButton: UIButton!
     
+    weak var delegate: RemoteVCDelegate?
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        navigationItem.title = L10n.remoteTitle
+        let icon = UIImage.fontAwesomeIcon(name: .cog, style: .solid, textColor: .black, size: CGSize(width: 30, height: 30))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: icon, style: .plain, target: self, action: #selector(onSettingsButtonPressed))
+    }
+    
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Settings
-        settingsButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .solid)
-        settingsButton.setTitle(String.fontAwesomeIcon(name: .cog), for: .normal)
-        settingsButton.setTitleColor(.black, for: .normal)
-        settingsButton.addTarget(self, action: #selector(onSettingsButtonPressed), for: .touchUpInside)
         
         let allButtons: [UIButton] = [
             keyLeftButton,
@@ -81,6 +92,11 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
     fileprivate func onRemoteButtonPressed(command: Command) {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
@@ -116,17 +132,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc fileprivate func onSettingsButtonPressed(button: UIButton) {
-        let settingsVC = SettingsVC()
-        settingsVC.delegate = self
-        present(settingsVC, animated: true, completion: nil)
+    @objc fileprivate func onSettingsButtonPressed() {
+        delegate?.remoteVCDidPressSettingsButton(self)
     }
 }
-
-extension ViewController: SettingsVCDelegate {
-    func settingsVC(_ settingsVC: SettingsVC, didDetectDevice device: BasicUPnPDevice) {
-        settingsVC.dismiss(animated: true, completion: nil)
-        RemoteClient.instance.setDevice(device)
-    }
-}
-

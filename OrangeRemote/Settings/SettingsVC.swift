@@ -16,8 +16,6 @@ protocol SettingsVCDelegate: class {
 
 class SettingsVC: UIViewController {
     
-    
-    
     @IBOutlet fileprivate(set) weak var wifiIconLabel: UILabel!
     @IBOutlet fileprivate(set) weak var wifiDetailsLabel: UILabel!
     @IBOutlet fileprivate(set) weak var networkIconLabel: UILabel!
@@ -27,21 +25,20 @@ class SettingsVC: UIViewController {
     
     weak var delegate: SettingsVCDelegate?
     
+    fileprivate let shouldShowBackButton: Bool
     fileprivate var devices = [BasicUPnPDevice]()
     
-    init() {
+    init(shouldShowBackButton: Bool) {
+        self.shouldShowBackButton = shouldShowBackButton
         super.init(nibName: nil, bundle: nil)
+        
+        navigationItem.title = L10n.settingsTitle
+        navigationItem.hidesBackButton = !shouldShowBackButton
     }
     
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        navigationItem.title = L10n.settingsTitle
     }
     
     override func viewDidLoad() {
@@ -76,7 +73,16 @@ class SettingsVC: UIViewController {
         
         manager.db.add(self)
         manager.ssdp.setUserAgentProduct("OrangeRemote", andOS: "iphoneos")
+        _ = manager.ssdp.startSSDP // this is a method call
         _ = manager.ssdp.searchSSDP // this is a method call
+    }
+    
+    fileprivate func stopScanning() {
+        guard let manager = UPnPManager.getInstance() else {
+            return print("Can't get manager")
+        }
+        
+        _ = manager.ssdp.stopSSDP // this is a method call
     }
 }
 
@@ -109,6 +115,7 @@ extension SettingsVC: UPnPDBObserver {
         }
         
         DispatchQueue.main.async {
+            self.stopScanning()
             self.delegate?.settingsVC(self, didDetectDevice: device)
         }
     }

@@ -11,9 +11,10 @@
 		C01B1BF721D516EA00B11092 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C01B1BF621D516EA00B11092 /* Localizable.strings */; };
 		C01B1BFA21D5182900B11092 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B1BF921D5182900B11092 /* L10n.swift */; };
 		C01B1BFC21D5185800B11092 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C01B1BFB21D5185800B11092 /* SettingsVC.xib */; };
+		C01B1C0021D5383700B11092 /* RemoteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C01B1BFF21D5383700B11092 /* RemoteVC.xib */; };
+		C01B1C0221D539AB00B11092 /* MainNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B1C0121D539AB00B11092 /* MainNVC.swift */; };
 		C04473AD21D4141400C7E598 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04473AC21D4141400C7E598 /* AppDelegate.swift */; };
-		C04473AF21D4141400C7E598 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04473AE21D4141400C7E598 /* ViewController.swift */; };
-		C04473B221D4141400C7E598 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04473B021D4141400C7E598 /* Main.storyboard */; };
+		C04473AF21D4141400C7E598 /* RemoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04473AE21D4141400C7E598 /* RemoteVC.swift */; };
 		C04473B421D4141700C7E598 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04473B321D4141700C7E598 /* Assets.xcassets */; };
 		C04473B721D4141700C7E598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04473B521D4141700C7E598 /* LaunchScreen.storyboard */; };
 		C04473BF21D415AF00C7E598 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04473BE21D415AF00C7E598 /* Command.swift */; };
@@ -29,10 +30,11 @@
 		C01B1BF621D516EA00B11092 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C01B1BF921D5182900B11092 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		C01B1BFB21D5185800B11092 /* SettingsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsVC.xib; sourceTree = "<group>"; };
+		C01B1BFF21D5383700B11092 /* RemoteVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoteVC.xib; sourceTree = "<group>"; };
+		C01B1C0121D539AB00B11092 /* MainNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNVC.swift; sourceTree = "<group>"; };
 		C04473A921D4141400C7E598 /* OrangeRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangeRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04473AC21D4141400C7E598 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C04473AE21D4141400C7E598 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C04473B121D4141400C7E598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C04473AE21D4141400C7E598 /* RemoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteVC.swift; sourceTree = "<group>"; };
 		C04473B321D4141700C7E598 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C04473B621D4141700C7E598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C04473B821D4141700C7E598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +80,35 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		C01B1BFE21D5380200B11092 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				C04473AE21D4141400C7E598 /* RemoteVC.swift */,
+				C01B1BFF21D5383700B11092 /* RemoteVC.xib */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		C01B1C0321D53A0F00B11092 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C04473C021D41AE000C7E598 /* RemoteClient.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		C01B1C0421D53A3100B11092 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				C04473B321D4141700C7E598 /* Assets.xcassets */,
+				C04473B521D4141700C7E598 /* LaunchScreen.storyboard */,
+				C04473B821D4141700C7E598 /* Info.plist */,
+				C01B1BF621D516EA00B11092 /* Localizable.strings */,
+				C01B1BF921D5182900B11092 /* L10n.swift */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		C04473A021D4141400C7E598 = {
 			isa = PBXGroup;
 			children = (
@@ -99,17 +130,13 @@
 		C04473AB21D4141400C7E598 /* OrangeRemote */ = {
 			isa = PBXGroup;
 			children = (
+				C01B1C0321D53A0F00B11092 /* Managers */,
+				C01B1BFE21D5380200B11092 /* Remote */,
 				C01B1BFD21D518F200B11092 /* Settings */,
-				C01B1BF921D5182900B11092 /* L10n.swift */,
 				C04473AC21D4141400C7E598 /* AppDelegate.swift */,
-				C04473AE21D4141400C7E598 /* ViewController.swift */,
-				C04473B021D4141400C7E598 /* Main.storyboard */,
-				C04473B321D4141700C7E598 /* Assets.xcassets */,
-				C04473B521D4141700C7E598 /* LaunchScreen.storyboard */,
-				C04473B821D4141700C7E598 /* Info.plist */,
 				C04473BE21D415AF00C7E598 /* Command.swift */,
-				C04473C021D41AE000C7E598 /* RemoteClient.swift */,
-				C01B1BF621D516EA00B11092 /* Localizable.strings */,
+				C01B1C0121D539AB00B11092 /* MainNVC.swift */,
+				C01B1C0421D53A3100B11092 /* Support */,
 			);
 			path = OrangeRemote;
 			sourceTree = "<group>";
@@ -178,7 +205,7 @@
 				C04473B721D4141700C7E598 /* LaunchScreen.storyboard in Resources */,
 				C01B1BF721D516EA00B11092 /* Localizable.strings in Resources */,
 				C04473B421D4141700C7E598 /* Assets.xcassets in Resources */,
-				C04473B221D4141400C7E598 /* Main.storyboard in Resources */,
+				C01B1C0021D5383700B11092 /* RemoteVC.xib in Resources */,
 				C01B1BFC21D5185800B11092 /* SettingsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,8 +288,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01B1C0221D539AB00B11092 /* MainNVC.swift in Sources */,
 				C04473C121D41AE000C7E598 /* RemoteClient.swift in Sources */,
-				C04473AF21D4141400C7E598 /* ViewController.swift in Sources */,
+				C04473AF21D4141400C7E598 /* RemoteVC.swift in Sources */,
 				C01B1BFA21D5182900B11092 /* L10n.swift in Sources */,
 				C04473AD21D4141400C7E598 /* AppDelegate.swift in Sources */,
 				C04473BF21D415AF00C7E598 /* Command.swift in Sources */,
@@ -273,14 +301,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C04473B021D4141400C7E598 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C04473B121D4141400C7E598 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C04473B521D4141700C7E598 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

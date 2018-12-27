@@ -10,6 +10,7 @@ import Foundation
 
 // swiftlint:disable function_parameter_count identifier_name line_length type_body_length
 internal enum L10n {
+  internal static let remoteTitle = L10n.tr("Localizable", "remote_title")
   internal static func settingsNetwork(_ p1: String) -> String {
     return L10n.tr("Localizable", "settings_network", p1)
   }

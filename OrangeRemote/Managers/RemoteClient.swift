@@ -21,22 +21,9 @@ class RemoteClientError: Error {
 class RemoteClient {
     
     static let instance = RemoteClient()
-    fileprivate(set) var baseUrl: URL?
+    var baseUrl: URL?
     
     init() {}
-    
-    func setDevice(_ device: BasicUPnPDevice) {
-        guard var components = URLComponents(url: device.baseURL, resolvingAgainstBaseURL: true) else {
-            return print("Can't create url components")
-        }
-        components.path = "/"
-        
-        guard let baseUrl = components.url else {
-            return print("Can't find base url")
-        }
-        
-        self.baseUrl = baseUrl
-    }
     
     func send(command: Command) -> Promise<Void> {
         
