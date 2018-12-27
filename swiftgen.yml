@@ -1,0 +1,7 @@
+strings:
+  inputs: OrangeRemote/Localizable.strings
+  outputs:
+    - templateName: flat-swift4
+      output: OrangeRemote/L10n.swift
+      params:
+        noComments: true

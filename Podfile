@@ -11,6 +11,7 @@ target 'OrangeRemote'
 pod 'Alamofire', '4.7.3'
 pod 'FontAwesome.swift', '1.4.8'
 pod 'PromiseKit/CorePromise', '6.5.3'
+pod 'SwiftGen', '6.0.2'
 pod 'upnpx', '1.4.0'
 
 post_install do |installer|

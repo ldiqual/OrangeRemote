@@ -2,12 +2,14 @@ PODS:
   - Alamofire (4.7.3)
   - FontAwesome.swift (1.4.8)
   - PromiseKit/CorePromise (6.5.3)
+  - SwiftGen (6.0.2)
   - upnpx (1.4.0)
 
 DEPENDENCIES:
   - Alamofire (= 4.7.3)
   - FontAwesome.swift (= 1.4.8)
   - PromiseKit/CorePromise (= 6.5.3)
+  - SwiftGen (= 6.0.2)
   - upnpx (= 1.4.0)
 
 SPEC REPOS:
@@ -15,14 +17,16 @@ SPEC REPOS:
     - Alamofire
     - FontAwesome.swift
     - PromiseKit
+    - SwiftGen
     - upnpx
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   FontAwesome.swift: fb8637bffb9a588c7e8c753c084565b27b20a39d
   PromiseKit: c609029bdd801f792551a504c695c7d3098b42cd
+  SwiftGen: e5b047067aa84082826a0c4f1c4c2ddc95bcf74c
   upnpx: c695b99229e08154d23abe5c252cb64f1600f35d
 
-PODFILE CHECKSUM: f36b537e479e728a18cc6ae74e413f60f06a7487
+PODFILE CHECKSUM: de9576a0b509f33f3a11cd34aafef4997fa752a4
 
 COCOAPODS: 1.5.3

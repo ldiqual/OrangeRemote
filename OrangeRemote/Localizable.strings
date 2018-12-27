@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  OrangeRemote
+
+  Created by Lois Di Qual on 12/27/18.
+  Copyright © 2018 Lois Di Qual. All rights reserved.
+*/
+
+"settings_title" = "Détection du décodeur";
+"settings_wifi" = "Vérifiez que votre iPhone est bien connecté en WIFI";
+"settings_network" = "Vérifiez que votre iPhone et votre décodeur sont bien connectés au même réseau WIFI: %@";
+"settings_power" = "Vérifiez que votre décodeur est allumé depuis au moins 30 secondes";
+
