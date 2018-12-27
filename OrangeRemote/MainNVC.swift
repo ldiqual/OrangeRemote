@@ -35,6 +35,11 @@ class MainNVC: UINavigationController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationBar.tintColor = .black
+    }
+    
     func setDevice(_ device: BasicUPnPDevice) {
         
         guard var components = URLComponents(url: device.baseURL, resolvingAgainstBaseURL: true) else {
